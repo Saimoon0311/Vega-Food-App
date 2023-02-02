@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "750096206798",
+    "project_id": "vega-food-app",
+    "storage_bucket": "vega-food-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750096206798:android:a7819341674e19d781399f",
+        "android_client_info": {
+          "package_name": "com.fooddapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "750096206798-ge3a2v45sd3lkgsbr51983d0dmehvaqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoEK8SOe1aCJGVKxbN2eqyS5mEaDde9Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "750096206798-ge3a2v45sd3lkgsbr51983d0dmehvaqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
