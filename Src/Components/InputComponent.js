@@ -22,7 +22,7 @@ export const InputComponent = ({
   const [show, setShow] = useState(!isSecure);
   const handleClick = () => setShow(!show);
   const keyboardType = ['number', 'reset_code'].includes(name)
-    ? 'numeric'
+    ? 'phone-pad'
     : 'default';
   return (
     <>

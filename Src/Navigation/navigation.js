@@ -24,6 +24,7 @@ const Navigation = () => {
       )}
       <Stack.Screen name="LoginScreen" component={Screens.LoginScreen} />
       <Stack.Screen name="RegisterScreen" component={Screens.RegisterScreen} />
+      <Stack.Screen name="OtpScreen" component={Screens.OtpScreen} />
     </Stack.Navigator>
   );
 };

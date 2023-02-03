@@ -113,7 +113,7 @@ const numberScheme = yup.object().shape({
     .string()
     .required('Please enter your number')
     .min(3, 'Please enter valid country code')
-    .max(11, 'Please enter valid country code'),
+    .max(14, 'Please enter valid country code'),
 });
 
 const Schemas = {
