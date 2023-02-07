@@ -3,7 +3,7 @@ import {hp, wp} from '../../Config/responsive';
 import {Colors} from '../../Theme/Variables';
 
 export const styles = StyleSheet.create({
-  mainView: {marginHorizontal: wp('5'), paddingTop: hp('10')},
+  mainView: {marginHorizontal: wp('5'), paddingTop: hp('5'), flex: 1},
   topHeading: {
     fontSize: hp('3'),
     fontWeight: 'bold',
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   inputHeading: {
     fontWeight: 'bold',
     fontSize: hp('2.5'),
-    marginVertical: hp('2'),
+    // marginVertical: hp('1.5'),
   },
   exitText: {
     fontWeight: 'bold',
@@ -48,5 +48,14 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.gray,
     marginTop: hp('4'),
+  },
+  appHeadingView: {
+    flexDirection: 'row',
+    width: wp('55'),
+    justifyContent: 'space-between',
+    alignSelf: 'center',
+    // marginTop: hp('23'),
+    position: 'absolute',
+    bottom: hp('0'),
   },
 });

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
 import {Controller} from 'react-hook-form';
 import {Colors} from '../Theme/Variables';
 import {Touchable} from './Touchable';
 import {hp, wp} from '../Config/responsive';
+import {eye, eyeOff} from '../Assests';
 
 export const InputComponent = ({
   minLength,
@@ -16,8 +17,9 @@ export const InputComponent = ({
   type,
   autoCapitalize = 'none',
   defaultValue = '',
-  isDisabled = false,
+  isDisabled,
   maxLength,
+  editable,
 }) => {
   const [show, setShow] = useState(!isSecure);
   const handleClick = () => setShow(!show);
@@ -46,15 +48,16 @@ export const InputComponent = ({
                 autoCapitalize,
                 autoCorrect: false,
                 spellCheck: false,
+                editable,
               }}
             />
             {isSecure && (
               <Touchable style={styles.eyeContainer} onPress={handleClick}>
                 <Image
-                  source={show ? eye : eye_off}
+                  source={show ? eye : eyeOff}
                   style={{
                     resizeMode: 'contain',
-                    tintColor: Colors.white,
+                    tintColor: Colors.gray,
                   }}
                 />
               </Touchable>
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
   eyeContainer: {
     width: 30,
     height: 30,
-    top: '30%',
+    // top: '30%',
     right: '1%',
     marginRight: 10,
     position: 'absolute',

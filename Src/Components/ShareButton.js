@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     // paddingHorizontal: '22.5%',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     backgroundColor: Colors.red,
   },
   image: {

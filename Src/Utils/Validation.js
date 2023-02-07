@@ -15,6 +15,10 @@ const passwordSchema = {
     .required('Confirm password is required')
     .oneOf([yup.ref('password'), null], 'Passwords must match'),
 };
+const number = yup.object().shape({
+  number: yup.string().required('Please Enter your number'),
+  // .typeError('Please Enter your number'),
+});
 
 const signUpschema = yup.object().shape({
   email: yup
@@ -31,6 +35,8 @@ const signUpschema = yup.object().shape({
     .matches(/^[A-Za-z ]*$/, 'Please Enter valid name')
     .min(2, 'Name must be atleast 2 characters')
     .max(50, 'Name must be of 50 characters'),
+  city: yup.string().required('Please Enter Your country'),
+  number: yup.string().required('Please enter your number'),
   // .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
   // phone: yup
   //   .number()
@@ -53,8 +59,20 @@ const logInUpschema = yup.object().shape({
     // .email('Email must be valid')
     .min(3, 'Email must be valid')
     .max(50, 'Email must be valid')
-    .required('Please Enter your email'),
-  password: yup.string().required('Please Enter your password'),
+    .required('Please Enter your email')
+    .matches(
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+      'Please enter valid email',
+    ),
+  password: yup
+    .string()
+    .required('Please Enter your password')
+    .min(6, 'Password must be greater then 6 digit')
+    .max(16, 'Password must be less then 16 digit')
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+    ),
 });
 const forgotSchema = yup.object().shape({
   email: yup
@@ -108,14 +126,6 @@ const editProfileScheme = yup.object().shape({
     .max(50, 'Name must be of 50 characters'),
 });
 
-const numberScheme = yup.object().shape({
-  number: yup
-    .string()
-    .required('Please enter your number')
-    .min(3, 'Please enter valid country code')
-    .max(14, 'Please enter valid country code'),
-});
-
 const Schemas = {
   signUp: yupResolver(signUpschema),
   logIn: yupResolver(logInUpschema),
@@ -126,7 +136,7 @@ const Schemas = {
   username: yupResolver(addUsernameScheme),
   editProfile: yupResolver(editProfileScheme),
   reviewSend: yupResolver(reviewScheme),
-  loginNumber: yupResolver(numberScheme),
+  // loginNumber: yupResolver(numberScheme),
 };
 
 export default Schemas;

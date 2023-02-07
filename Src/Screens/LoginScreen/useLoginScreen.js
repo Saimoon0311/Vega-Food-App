@@ -10,16 +10,19 @@ const {default: Schemas} = require('../../Utils/Validation');
 
 const useLogin = ({navigate}) => {
   const {handleSubmit, errors, reset, control, getValues} = useFormHook(
-    Schemas.loginNumber,
+    Schemas.logIn,
   );
   const facebookLoginFunc = () => {
     faceBookLogin()
-      .then(res => console.log('Login', res))
+      .then(
+        res => navigate('RegisterScreen', {...res.additionalUserInfo}),
+        // navigate('RegisterScreen', {...res.additionalUserInfo, ...res.user}),
+      )
       .catch(err => console.log('error', err));
   };
   const googleLoginFunc = () => {
     googleLogin()
-      .then(res => console.log('Login', res))
+      .then(res => navigate('RegisterScreen', {...res.additionalUserInfo}))
       .catch(err => console.log('error', err));
   };
 
@@ -31,6 +34,9 @@ const useLogin = ({navigate}) => {
       console.log('err', error);
     }
   };
+
+  const register = () => navigate('RegisterScreen');
+
   return {
     handleSubmit,
     errors,
@@ -40,6 +46,7 @@ const useLogin = ({navigate}) => {
     facebookLoginFunc,
     googleLoginFunc,
     PhoneNumberLoginFuc,
+    register,
   };
 };
 
