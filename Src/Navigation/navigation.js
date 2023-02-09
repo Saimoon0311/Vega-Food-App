@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 const Navigation = () => {
   const {getState} = useReduxStore();
   const {onboarding} = getState('onboarding');
-  const {userData} = getState('Auth');
+  const {token} = getState('Auth');
   return (
     <Stack.Navigator
       screenOptions={{
@@ -23,7 +23,7 @@ const Navigation = () => {
           component={Screens.OnboardingScreen}
         />
       )}
-      {!userData.email && (
+      {token == '' && (
         <>
           <Stack.Screen name="LoginScreen" component={Screens.LoginScreen} />
           <Stack.Screen
@@ -33,7 +33,7 @@ const Navigation = () => {
           <Stack.Screen name="OtpScreen" component={Screens.OtpScreen} />
         </>
       )}
-      {userData.email && (
+      {token != '' && (
         <Stack.Screen name="HomeScreen" component={Screens.HomeScreen} />
       )}
     </Stack.Navigator>

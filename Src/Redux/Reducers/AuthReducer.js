@@ -6,17 +6,19 @@ const initial_state = {
 };
 
 const actionMap = {
-  [types.LoginType]: (state, act) => ({
-    userData: state.user,
-    token: state.token,
-  }),
+  [types.LoginType]: (state, act) => {
+    const deleteToken = {...act.payload.data};
+    const filterObject = delete deleteToken.token;
+    state.userData = filterObject;
+    state.token = act.payload.data.token;
+  },
   [types.LogoutType]: (state, act) => ({
     userData: {},
     token: '',
   }),
   [types.UpdateProfile]: (state, act) => ({
     ...state,
-    userData: state.user,
+    userData: act.payload.data,
   }),
 };
 

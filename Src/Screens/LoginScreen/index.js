@@ -22,6 +22,7 @@ const LoginScreen = ({navigation}) => {
     googleLoginFunc,
     PhoneNumberLoginFuc,
     register,
+    loginWithEmail,
   } = useLogin(navigation);
   return (
     <View style={styles.mainView}>
@@ -76,7 +77,7 @@ const LoginScreen = ({navigation}) => {
           }}
         />
         <ShareButton
-          onPress={handleSubmit(PhoneNumberLoginFuc)}
+          onPress={handleSubmit(loginWithEmail)}
           title={'Login'}
           style={styles.getStart}
         />

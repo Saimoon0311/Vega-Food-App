@@ -8,7 +8,7 @@ import {loadingFalse, loadingTrue} from '../Redux/Actions/isloadingAction';
 const API = create({
   baseURL,
   timeout: 15000,
-  timeoutErrorMessage: 'Please try Again...',
+  //   timeoutErrorMessage: 'Please try Again...',
 });
 
 const hideLoaderAPIs = [

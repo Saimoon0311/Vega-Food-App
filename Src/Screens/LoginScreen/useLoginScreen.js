@@ -1,9 +1,14 @@
+import {errorMessage} from '../../Components/NotificationMessage';
+import useReduxStore from '../../Hooks/useReduxStore';
+import {loginUser} from '../../Redux/Actions/AuthAction';
+import API from '../../Utils/helperFunction';
 import {
   faceBookLogin,
   googleLogin,
   PhoneNumberLogin,
   verifyCode,
 } from '../../Utils/SocialLogin';
+import {loginUrl} from '../../Utils/Url';
 
 const {default: useFormHook} = require('../../Hooks/useFormHook');
 const {default: Schemas} = require('../../Utils/Validation');
@@ -12,12 +17,20 @@ const useLogin = ({navigate}) => {
   const {handleSubmit, errors, reset, control, getValues} = useFormHook(
     Schemas.logIn,
   );
+  const {dispatch} = useReduxStore();
+
   const facebookLoginFunc = () => {
     faceBookLogin()
-      .then(
-        res => navigate('RegisterScreen', {...res.additionalUserInfo}),
-        // navigate('RegisterScreen', {...res.additionalUserInfo, ...res.user}),
-      )
+      .then(res => {
+        if (res.additionalUserInfo.isNewUser == false) {
+          let data = {
+            email: res.additionalUserInfo.profile.email,
+            password: '',
+            providerId: res.additionalUserInfo.providerId,
+          };
+          loginWithEmail(data);
+        } else navigate('RegisterScreen', {...res.additionalUserInfo});
+      })
       .catch(err => console.log('error', err));
   };
   const googleLoginFunc = () => {
@@ -35,6 +48,18 @@ const useLogin = ({navigate}) => {
     }
   };
 
+  const loginWithEmail = async ({email, password, providerId}) => {
+    const {ok, data} = await API.post(loginUrl, {
+      email,
+      password,
+      providerId: providerId || 'email.com',
+    });
+    if (ok) dispatch(loginUser(data));
+    else {
+      errorMessage(data.data);
+    }
+  };
+
   const register = () => navigate('RegisterScreen');
 
   return {
@@ -47,6 +72,7 @@ const useLogin = ({navigate}) => {
     googleLoginFunc,
     PhoneNumberLoginFuc,
     register,
+    loginWithEmail,
   };
 };
 

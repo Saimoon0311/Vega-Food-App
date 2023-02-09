@@ -22,16 +22,13 @@ const useRegister = ({navigate}, route) => {
       password,
       phoneNumber: number,
     });
-    console.log('data', originalError);
-    if (ok) console.log('data', data);
-    // if (ok) dispatch(loginUser(data));
-    else errorMessage('Login request failed');
+    console.log('advsdvsd', originalError);
+    if (ok) dispatch(loginUser(data));
+    else errorMessage(data.data);
   };
 
   const login = () => navigate('LoginScreen');
-  //   const signUpFunc = ()=>{
 
-  //   }
   return {
     handleSubmit,
     errors,

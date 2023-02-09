@@ -127,7 +127,7 @@ const RegisterScreen = ({navigation, route}) => {
           hide
           textStyle={{textAlign: 'center'}}
           style={{marginTop: hp('5')}}
-          onPress={register}
+          onPress={handleSubmit(register)}
         />
         <View style={styles.appHeadingView}>
           <TextComponent
