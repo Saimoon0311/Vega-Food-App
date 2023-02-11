@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
 import {View} from 'react-native';
 import {TextComponent} from '../../Components/TextComponent';
-import {useOtpScreen} from './useOtpScreen';
+import {useOfferScreen} from './useOfferScreen';
 
-const OtpScreen = ({route, navigation}) => {
-  // const {phoneNumber} = useOtpScreen(navigation, route);
+const OfferScreen = ({route, navigation}) => {
+  // const {phoneNumber} = useOfferScreen(navigation, route);
   return (
     <View>
       <TextComponent />
@@ -12,4 +12,4 @@ const OtpScreen = ({route, navigation}) => {
   );
 };
 
-export default memo(OtpScreen);
+export default memo(OfferScreen);

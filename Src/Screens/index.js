@@ -3,3 +3,7 @@ export {default as OnboardingScreen} from './OnboardingScreen';
 export {default as OtpScreen} from './OtpScreen';
 export {default as RegisterScreen} from './RegisterScreen';
 export {default as HomeScreen} from './HomeScreen';
+export {default as OfferScreen} from './OfferScreen';
+export {default as CartScreen} from './CartScreen';
+export {default as SettingScreen} from './SettingScreen';
+export {default as MenuScreen} from './MenuScreen';

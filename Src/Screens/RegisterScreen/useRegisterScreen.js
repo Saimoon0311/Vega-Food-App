@@ -24,7 +24,7 @@ const useRegister = ({navigate}, route) => {
     });
     console.log('advsdvsd', originalError);
     if (ok) dispatch(loginUser(data));
-    else errorMessage(data.data);
+    else errorMessage(data?.data || 'Network request failed');
   };
 
   const login = () => navigate('LoginScreen');

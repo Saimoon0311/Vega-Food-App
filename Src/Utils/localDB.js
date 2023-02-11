@@ -18,3 +18,15 @@ export const onBoardinData = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
   },
 ];
+
+export const category = [
+  {name: 'meet', _id: 0},
+  {name: 'mesdfet', _id: 1},
+  {name: 'msdfeet', _id: 2},
+  {name: 'me sd et', _id: 3},
+  {name: 'mddeet', _id: 4},
+  {name: 'm sd eet', _id: 5},
+  {name: ' sd  s', _id: 6},
+  {name: 'me ds det', _id: 7},
+  {name: ' sds ', _id: 8},
+];

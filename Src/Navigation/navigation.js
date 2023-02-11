@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as Screens from '../Screens/index';
 import useReduxStore from '../Hooks/useReduxStore';
+import MybottomTabs from './bottomTab';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,7 +35,7 @@ const Navigation = () => {
         </>
       )}
       {token != '' && (
-        <Stack.Screen name="HomeScreen" component={Screens.HomeScreen} />
+        <Stack.Screen name="MybottomTabs" component={MybottomTabs} />
       )}
     </Stack.Navigator>
   );

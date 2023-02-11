@@ -8,9 +8,12 @@ const initial_state = {
 const actionMap = {
   [types.LoginType]: (state, act) => {
     const deleteToken = {...act.payload.data};
-    const filterObject = delete deleteToken.token;
-    state.userData = filterObject;
-    state.token = act.payload.data.token;
+    delete deleteToken.token;
+    console.log('sdvsdvsd', deleteToken);
+    return {
+      userData: deleteToken,
+      token: act.payload.data.token,
+    };
   },
   [types.LogoutType]: (state, act) => ({
     userData: {},

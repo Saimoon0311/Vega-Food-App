@@ -84,6 +84,8 @@ const Colors = {
   switch: 'rgba(60, 75, 119, 0.4)',
   card: 'rgba(29 ,134 ,202 ,0.41)',
   blackDark: 'rgba(0,0,0,0.4)',
+  bubbleView: '#D5D5D5',
+  bubbleText: '#656565',
 };
 
 const NavigationColors = {

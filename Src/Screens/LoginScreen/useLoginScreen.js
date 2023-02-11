@@ -56,7 +56,7 @@ const useLogin = ({navigate}) => {
     });
     if (ok) dispatch(loginUser(data));
     else {
-      errorMessage(data.data);
+      errorMessage(data?.data || 'Network request failed');
     }
   };
 
